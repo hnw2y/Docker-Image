@@ -1,5 +1,5 @@
   
-FROM jupyter/base-notebook
+FROM jlphillips/csci3130
 
 LABEL maintainer = "Hannah Williams"
 
@@ -8,20 +8,8 @@ USER root
 # Additional tools
 RUN apt-get update && \
     apt-get install -y \
-    gcc \
-    g++ \
-    make \
-    autoconf \
-    libtool \
-    vim \
-    less \
-    ssh \
-    rsync \
-    zip \
-    tmux \
-    gdb \
     gromacs \
-    xmgrace \
+    grace \
     && apt-get clean
 
 # CSCI 3130
