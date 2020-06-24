@@ -11,6 +11,7 @@ RUN apt-get update && \
     gromacs \
     grace \
     dnsutils \
+    gromacs-mpich \
     && apt-get clean
 
 # CSCI 3130
