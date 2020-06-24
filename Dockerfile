@@ -10,6 +10,7 @@ RUN apt-get update && \
     apt-get install -y \
     gromacs \
     grace \
+    dnsutils \
     && apt-get clean
 
 # CSCI 3130
