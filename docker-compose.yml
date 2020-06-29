@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  jupyterhub:
+    build: jupyterhub
+    image: jupyterhub-nfs_img
+    container_name: jupyterhub-nfs
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /mnt/nfshome:/nfshome
+      - hubdata:/srv/jupyterhub
+    ports:
+      - "8888:8888"
+    environment:
+      - DOCKER_JUPYTER_CONTAINER=jupyterlab-nfs_img
+      - DOCKER_NETWORK_NAME=${COMPOSE_PROJECT_NAME}_default
+      - JHUB_IP=jupyterhub
+      - HOST
+      - HOSTNAME
+      - JHUB_DEFAULT_URL
+      - JHUB_BASE_URL
+    deploy:
+      resources:
+        limits:
+          cpus: '4'
+          memory: 2G
+    restart: on-failure
+
+  corenlp:
+    build: corenlp
+    image: jupyterlab-nfs-corenlp_img
+    container_name: jupyterlab-nfs-corenlp
+    deploy:
+      resources:
+        limits:
+          cpus: '16'
+          memory: 10G
+    restart: on-failure
+  
+  jupyterlab:
+    build: jupyterlab
+    image: jupyterlab-nfs_img
+    container_name: jupyterlab-nfs-throwaway
+    network_mode: none
+    command: echo
+
+volumes:
+  hubdata:
