@@ -6,9 +6,7 @@ services:
     image: hannahnw124-jlab-gromacs                                   
     container_name: jupyterlab1                                       
     volumes:                                                          
-      - /var/run/docker.sock:/var/run/docker.sock                     
-      - /mnt/nfshome:/nfshome                                        
-      - hubdata:/srv/jupyterhub                                       
+      - //c/Users/Williams/Desktop/Docker:/home/jovyan/work                                     
     ports:                                                            
       - "8888:8888"                                                                                                                                                        
     restart: on-failure                                               
@@ -18,10 +16,5 @@ services:
     image: hannahnw124-jlab-gromacs
     container_name: jupyterlab2
      volumes:                                                          
-      - /var/run/docker.sock:/var/run/docker.sock                     
-      - /mnt/nfshome:/nfshome                                        
-      - hubdata:/srv/jupyterhub  
-    restart: on-failure
-
-volumes:                                                              
-  hubdata:                                                            
+      - //c/Users/Williams/Desktop/Docker:/home/jovyan/work
+    restart: on-failure                                                           
