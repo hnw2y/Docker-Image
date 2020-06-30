@@ -10,31 +10,17 @@ services:
       - /mnt/nfshome:/nfshome                                        
       - hubdata:/srv/jupyterhub                                       
     ports:                                                            
-      - "8888:8888"                                                   
-    environment:                                                      
-      - DOCKER_JUPYTER_CONTAINER=hannahnw124-jlab-gromacs             
-      - DOCKER_NETWORK_NAME=${COMPOSE_PROJECT_NAME}_default           
-      - JHUB_IP=jupyterhub                                            
-      - HOST                                                          
-      - HOSTNAME                                                      
-      - JHUB_DEFAULT_URL                                              
-      - JHUB_BASE_URL                                                     
-    deploy:                                                           
-      resources:                                                      
-        limits:                                                       
-          cpus: '4'                                                   
-          memory: 2G                                                  
+      - "8888:8888"                                                                                                                                                        
     restart: on-failure                                               
   
   jupyterlab2:
     build: jupyterlab2
     image: hannahnw124-jlab-gromacs
     container_name: jupyterlab2
-    deploy:
-      resources:
-        limits:
-          cpus: '4'
-          memory: 2G
+     volumes:                                                          
+      - /var/run/docker.sock:/var/run/docker.sock                     
+      - /mnt/nfshome:/nfshome                                        
+      - hubdata:/srv/jupyterhub  
     restart: on-failure
 
 volumes:                                                              
