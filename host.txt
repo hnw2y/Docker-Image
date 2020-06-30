@@ -1,2 +1,2 @@
-jupyterlab1 slots:64
-jupyterlab2 slots:64
+jupyterlab1:64
+jupyterlab2:64
