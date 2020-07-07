@@ -15,6 +15,9 @@ services:
     build: jupyterlab2
     image: hannahnw124-jlab-gromacs
     container_name: jupyterlab2
-     volumes:                                                          
+    environment: 
+      - GRANT_SUDO=yes
+    user: root
+    volumes:                                                          
       - //c/Users/Williams/Desktop/Docker:/home/jovyan/work
     restart: on-failure                                                           
