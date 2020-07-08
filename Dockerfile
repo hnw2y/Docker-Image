@@ -36,10 +36,3 @@ RUN chown -R jovyan /home/jovyan/.ssh
 
 # CSCI 3130
 USER $NB_UID
-
-RUN conda install --quiet --yes \
-    bash_kernel \
-    && \
-    conda clean --all -f -y && \
-    fix-permissions $CONDA_DIR && \
-    fix-permissions /home/$NB_USER
