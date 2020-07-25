@@ -6,7 +6,7 @@ services:
     image: hannahnw124-jlab-gromacs                                   
     container_name: jupyterlab1                                       
     volumes:                                                          
-      - //c/Users/Williams/Desktop/Docker:/home/jovyan/work                                     
+      - //c/Users/hw_12/Desktop/Research/docker_deployment:/home/jovyan/work                                     
     ports:                                                            
       - "8888:8888"                                                                                                                                                        
     restart: on-failure                                               
@@ -19,5 +19,5 @@ services:
       - GRANT_SUDO=yes
     user: root
     volumes:                                                          
-      - //c/Users/Williams/Desktop/Docker:/home/jovyan/work
+      - //c/Users/hw_12/Desktop/Research/docker_deployment:/home/jovyan/work
     restart: on-failure                                                           
