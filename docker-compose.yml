@@ -2,9 +2,12 @@ version: '3'
 
 services:                                                             
   jupyterlab1:                                                       
-    build: jupyterlab1                                                
-    image: hannahnw124-jlab-gromacs                                   
-    container_name: jupyterlab1                                       
+    build: jlab                                             
+    image: jlab_img
+    container_name: jupyterlab1 
+    environment:
+      - GRANT_SUDO=yes
+    user: root                                      
     volumes:                                                          
       - //c/Users/hw_12/Desktop/Research/docker_deployment:/home/jovyan/work                                     
     ports:                                                            
@@ -12,12 +15,12 @@ services:
     restart: on-failure                                               
   
   jupyterlab2:
-    build: jupyterlab2
-    image: hannahnw124-jlab-gromacs
+    build: jlab
+    image: jlab_img
     container_name: jupyterlab2
     environment: 
       - GRANT_SUDO=yes
     user: root
     volumes:                                                          
       - //c/Users/hw_12/Desktop/Research/docker_deployment:/home/jovyan/work
-    restart: on-failure                                                           
+    restart: on-failure    
